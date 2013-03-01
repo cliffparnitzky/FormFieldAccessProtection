@@ -1,5 +1,5 @@
-Contao FormFieldAccessProtection Extension
-==========================================
+Contao Extension: FormFieldAccessProtection
+===========================================
 
 Provides access protection (known from modules and content elements) for form fields.
 
@@ -23,7 +23,7 @@ Compatibility
 -------------
 
 - min. version: Contao 2.9.5
-- max. version: Contao 2.11.6
+- max. version: Contao 2.11.x
 
 
 Dependency
