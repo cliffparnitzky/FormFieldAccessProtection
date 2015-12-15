@@ -1,3 +1,7 @@
+[![Latest Version on Packagist](http://img.shields.io/packagist/v/cliffparnitzky/form-field-access-protection.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/form-field-access-protection)
+[![Installations via composer per month](http://img.shields.io/packagist/dm/cliffparnitzky/form-field-access-protection.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/form-field-access-protection)
+[![Installations via composer total](http://img.shields.io/packagist/dt/cliffparnitzky/form-field-access-protection.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/form-field-access-protection)
+
 Contao Extension: FormFieldAccessProtection
 ===========================================
 
@@ -7,10 +11,9 @@ Provides access protection (known from modules and content elements) for form fi
 Installation
 ------------
 
-The extension can be installed using the Contao extension manager in the Contao
-back end. If you prefer to install it manually, download the files here:
+Install the extension via composer: [cliffparnitzky/form-field-access-protection](https://packagist.org/packages/cliffparnitzky/form-field-access-protection).
 
-http://www.contao.org/de/extension-list/view/FormFieldAccessProtection.html
+If you prefer to install it manually, download the latest release here: https://github.com/cliffparnitzky/FormFieldAccessProtection/releases
 
 
 Tracker
@@ -22,11 +25,17 @@ https://github.com/cliffparnitzky/FormFieldAccessProtection/issues
 Compatibility
 -------------
 
-- min. version: Contao 2.9.5
-- max. version: Contao 2.11.x
+- min. Contao version: >= 3.2.0
+- max. Contao version: <  3.6.0
 
 
 Dependency
 ----------
 
-- There are no dependencies to other extensions, that have to be installed.
+There are no dependencies to other extensions, that have to be installed.
+
+
+Screenshots
+-----------
+
+![Screenshot](screenshot.jpg)
