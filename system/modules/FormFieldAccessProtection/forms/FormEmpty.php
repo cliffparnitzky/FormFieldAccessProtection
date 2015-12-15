@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2012 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,23 +21,35 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2012
+ * @copyright  Cliff Parnitzky 2012-2015
  * @author     Cliff Parnitzky
  * @package    FormFieldAccessProtection
  * @license    LGPL
- * @filesource
  */
- 
-/**
- * Legends
- */
-$GLOBALS['TL_LANG']['tl_form_field']['protected_legend'] = 'Access protection';
 
 /**
- * Fields
+ * Run in a custom namespace, so the class can be replaced
  */
-$GLOBALS['TL_LANG']['tl_form_field']['protected'] = array('Protect form field', 'Show the form field to certain member groups only.');
-$GLOBALS['TL_LANG']['tl_form_field']['groups']    = array('Allowed member groups', 'These member groups will be able to see the form field.');
-$GLOBALS['TL_LANG']['tl_form_field']['guests']    = array('Show to guests only', 'Hide the form field if a member is logged in.'); 
+namespace CliffParnitzky\FormFieldAccessProtection;
+
+/**
+ * Class FormEmpty
+ *
+ * Empty string.
+ * @copyright  Cliff Parnitzky 2012-2015
+ * @author     Cliff Parnitzky
+ * @package    Widget
+ */
+class FormEmpty extends \Widget
+{
+	/**
+	 * Generate the widget and return it as string
+	 * @return string
+	 */
+	public function generate()
+	{
+		return "";
+	}
+}
 
 ?>

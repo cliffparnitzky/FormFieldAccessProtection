@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2012 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,34 +21,34 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2012
+ * @copyright  Cliff Parnitzky 2012-2015
  * @author     Cliff Parnitzky
  * @package    FormFieldAccessProtection
  * @license    LGPL
- * @filesource
  */
- 
+
+/**
+ * Table tl_form_field
+ */
+$GLOBALS['TL_DCA']['tl_form_field']['config']['onload_callback'][] = array('CliffParnitzky\FormFieldAccessProtection\FormFieldAccessProtectionDcaHelper', 'extendAllPalettes');
+
 /**
  * Add a palette to tl_form_field
  */
 $GLOBALS['TL_DCA']['tl_form_field']['palettes']['__selector__'][] = 'protected';
 $GLOBALS['TL_DCA']['tl_form_field']['subpalettes']['protected'] = 'groups';
 
-foreach ($GLOBALS['TL_DCA']['tl_form_field']['palettes'] as $name=>$palette) {
-	$GLOBALS['TL_DCA']['tl_form_field']['palettes'][$name] = str_replace("{expert_legend:hide}", "{protected_legend:hide},protected;{expert_legend:hide},guests", $palette);
-}
-
 /**
  * Add fields to tl_form_field
  */
-
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['protected'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['protected'],
 	'exclude'                 => true,
 	'filter'                  => true,
 	'inputType'               => 'checkbox',
-	'eval'                    => array('submitOnChange'=>true)
+	'eval'                    => array('submitOnChange'=>true),
+	'sql'                     => "char(1) NOT NULL default ''"
 );
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['groups'] = array
 (
@@ -56,14 +56,16 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['groups'] = array
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
 	'foreignKey'              => 'tl_member_group.name',
-	'eval'                    => array('mandatory'=>true, 'multiple'=>true)
+	'eval'                    => array('mandatory'=>true, 'multiple'=>true),
+	'sql'                     => "blob NULL"
 );
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['guests'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['guests'],
 	'exclude'                 => true,
 	'filter'                  => true,
-	'inputType'               => 'checkbox'
+	'inputType'               => 'checkbox',
+	'sql'                     => "char(1) NOT NULL default ''"
 );
 
 ?>

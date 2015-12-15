@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2012 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,33 +21,37 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2012
+ * @copyright  Cliff Parnitzky 2012-2015
  * @author     Cliff Parnitzky
  * @package    FormFieldAccessProtection
  * @license    LGPL
- * @filesource
  */
+
+/**
+ * Run in a custom namespace, so the class can be replaced
+ */
+namespace CliffParnitzky\FormFieldAccessProtection;
 
 /**
  * Class FormFieldAccessProtectionHook
  *
  * Provide methods to handle display the field if allowed
- * @copyright  Cliff Parnitzky 2012
+ * @copyright  Cliff Parnitzky 2012-2015
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class FormFieldAccessProtectionHook extends Controller {
+class FormFieldAccessProtectionHook extends \Contao\Controller {
 	/**
 	 * Check if displaying is allowed
 	 * @param string
 	 * @return boolean
 	 */
-	public function loadFormField (Widget $objWidget, $strForm, $arrForm)
+	public function loadFormField (\Contao\Widget $objWidget, $strForm, $arrForm)
 	{
 	// Show to guests only
 		if ($objWidget->guests && FE_USER_LOGGED_IN && !BE_USER_LOGGED_IN && !$objWidget->protected)
 		{
-			return new FormFieldAccessProtectionWidget();
+			return new \CliffParnitzky\FormFieldAccessProtection\FormEmpty();
 		}
 
 		// Protected element
@@ -55,7 +59,7 @@ class FormFieldAccessProtectionHook extends Controller {
 		{
 			if (!FE_USER_LOGGED_IN)
 			{
-				return new FormFieldAccessProtectionWidget();
+				return new \CliffParnitzky\FormFieldAccessProtection\FormEmpty();
 			}
 
 			$this->import('FrontendUser', 'User');
@@ -63,7 +67,7 @@ class FormFieldAccessProtectionHook extends Controller {
 	
 			if (!is_array($groups) || count($groups) < 1 || count(array_intersect($groups, $this->User->groups)) < 1)
 			{
-				return new FormFieldAccessProtectionWidget();
+				return new \CliffParnitzky\FormFieldAccessProtection\FormEmpty();
 			}
 		}
 		
