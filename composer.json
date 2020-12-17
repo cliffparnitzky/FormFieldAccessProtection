@@ -22,6 +22,6 @@
 	},
 	"require":{
 		"php":">=7.3",
-		"contao/core":">=4.9"
+		"contao/core-bundle":">=4.9"
 	}
 }
