@@ -25,8 +25,7 @@ https://github.com/cliffparnitzky/FormFieldAccessProtection/issues
 Compatibility
 -------------
 
-- min. Contao version: >= 3.2.0
-- max. Contao version: <  3.6.0
+- min. Contao version: >= 4.9
 
 
 Dependency
