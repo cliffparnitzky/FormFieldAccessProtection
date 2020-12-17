@@ -23,5 +23,13 @@
 	"require":{
 		"php":">=7.3",
 		"contao/core-bundle":">=4.9"
+	},
+	"extra": {
+		"contao-manager-plugin": "Philvdb\\FormFieldAccessProtectionBundle\\ContaoManager\\Plugin"
+	},
+	"autoload": {
+		"psr-4": {
+			"Philvdb\\FormFieldAccessProtectionBundle\\": "src/"
+		}
 	}
 }

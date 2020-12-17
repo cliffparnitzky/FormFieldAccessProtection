@@ -1,0 +1,7 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    Philvdb\FormFieldAccessProtectionBundle\EventListener\:
+        resource: ../../EventListener
