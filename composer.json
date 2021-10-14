@@ -1,37 +1,35 @@
 {
-	"name":"cliffparnitzky/form-field-access-protection",
+	"name":"philvdb/form-field-access-protection-bundle",
 	"description":"Provides access protection (known from modules and content elements) for form fields.",
 	"keywords":["contao","form","form field","access", "protection", "access protection"],
-	"type":"contao-module",
-	"license":"LGPL-3.0+",
+	"type":"contao-bundle",
+	"license":"LGPL-3.0-or-later",
 	"authors":[
 		{
 			"name":"Cliff Parnitzky",
 			"email":"contao@cliff-parnitzky.de",
 			"role":"Developer"
+		},
+		{
+			"name":"Dr. Philip von der Borch",
+			"email":"git@vonderborch.com",
+			"role":"Developer"
 		}
 	],
 	"support":{
-		"email":"contao@cliff-parnitzky.de",
 		"issues":"https://github.com/cliffparnitzky/FormFieldAccessProtection/issues",
 		"source":"https://github.com/cliffparnitzky/FormFieldAccessProtection"
 	},
 	"require":{
-		"php":">=5.3",
-		"contao/core":">=3.2.0,<3.6",
-		"contao-community-alliance/composer-plugin":"~2.0"
+		"php":">=7.3",
+		"contao/core-bundle":">=4.9"
 	},
-	"conflict": {
-		"contao/core":"3.4.0,3.4.1,3.4.2"
+	"extra": {
+		"contao-manager-plugin": "Philvdb\\FormFieldAccessProtectionBundle\\ContaoManager\\Plugin"
 	},
-	"extra":{
-		"contao":{
-			"sources":{
-				"system/modules/FormFieldAccessProtection":"system/modules/FormFieldAccessProtection"
-			}
-		},
-		"branch-alias": {
-			"dev-master": "1.0.x-dev"
+	"autoload": {
+		"psr-4": {
+			"Philvdb\\FormFieldAccessProtectionBundle\\": "src/"
 		}
 	}
 }
